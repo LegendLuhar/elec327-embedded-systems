@@ -1,0 +1,252 @@
+******************************************************************************
+            TI ARM Clang Linker Unix v4.0.4                    
+******************************************************************************
+>> Linked Wed Apr 15 11:26:57 2026
+
+OUTPUT FILE NAME:   <Lab5.out>
+ENTRY POINT SYMBOL: "_c_int00_noinit_noargs"  address: 000001fd
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00020000  00000270  0001fd90  R  X
+  SRAM                  20200000   00008000  00000200  00007e00  RW X
+  BCR_CONFIG            41c00000   00000080  00000000  00000080  R   
+  BSL_CONFIG            41c00100   00000080  00000000  00000080  R   
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000270   00000270    r-x
+  00000000    00000000    000000c0   000000c0    r-- .intvecs
+  000000c0    000000c0    000001b0   000001b0    r-x .text
+20207e00    20207e00    00000200   00000000    rw-
+  20207e00    20207e00    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    000000c0     
+                  00000000    000000c0     startup_mspm0g350x_ticlang.o (.intvecs)
+
+.text      0    000000c0    000001b0     
+                  000000c0    00000068     hw_interface.o (.text.InitializeTimerA1_PWM)
+                  00000128    00000048     hw_interface.o (.text.InitializeTimerG0)
+                  00000170    00000048     lab5.o (.text.main)
+                  000001b8    00000044     hw_interface.o (.text.InitializeGPIO)
+                  000001fc    00000020     libc.a : boot_cortex_m.c.obj (.text:_c_int00_noinit_noargs)
+                  0000021c    0000001c     hw_interface.o (.text.EnableTimerG0)
+                  00000238    0000000c     hw_interface.o (.text.SetTimerG0Delay)
+                  00000244    0000000c     hw_interface.o (.text.TIMG0_IRQHandler)
+                  00000250    0000000a     hw_interface.o (.text.delay_cycles)
+                  0000025a    00000006     libc.a : exit.c.obj (.text:abort)
+                  00000260    00000004     libsysbm.a : hostexit.c.obj (.text.HOSTexit)
+                  00000264    00000004     startup_mspm0g350x_ticlang.o (.text.Reset_Handler)
+                  00000268    00000004     libc.a : pre_init.c.obj (.text._system_pre_init)
+                  0000026c    00000002     startup_mspm0g350x_ticlang.o (.text.Default_Handler)
+                  0000026e    00000002     --HOLE-- [fill = 0]
+
+.cinit     0    00000000    00000000     
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.binit     0    00000000    00000000     
+
+.stack     0    20207e00    00000200     UNINITIALIZED
+                  20207e00    00000004     libc.a : boot_cortex_m.c.obj (.stack)
+                  20207e04    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20200000    00000000     UNINITIALIZED
+
+__llvm_prf_bits 
+*          0    20200000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    ./
+       hw_interface.o                 306    0         0      
+       startup_mspm0g350x_ticlang.o   6      192       0      
+       lab5.o                         72     0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         384    192       0      
+                                                              
+    /Applications/ti/ccs2040/ccs/tools/compiler/ti-cgt-armllvm_4.0.4.LTS/lib/armv6m-ti-none-eabi/c/libc.a
+       boot_cortex_m.c.obj            32     0         0      
+       exit.c.obj                     6      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         42     0         0      
+                                                              
+    /Applications/ti/ccs2040/ccs/tools/compiler/ti-cgt-armllvm_4.0.4.LTS/lib/armv6m-ti-none-eabi/c/libsysbm.a
+       hostexit.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         4      0         0      
+                                                              
+       Stack:                         0      0         512    
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   430    192       512    
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                    
+-------   ----                    
+0000026d  ADC0_IRQHandler         
+0000026d  ADC1_IRQHandler         
+0000026d  AES_IRQHandler          
+00000260  C$$EXIT                 
+0000026d  CANFD0_IRQHandler       
+0000026d  DAC0_IRQHandler         
+0000026d  DMA_IRQHandler          
+0000026d  Default_Handler         
+0000021d  EnableTimerG0           
+0000026d  GROUP0_IRQHandler       
+0000026d  GROUP1_IRQHandler       
+00000261  HOSTexit                
+0000026d  HardFault_Handler       
+0000026d  I2C0_IRQHandler         
+0000026d  I2C1_IRQHandler         
+000001b9  InitializeGPIO          
+000000c1  InitializeTimerA1_PWM   
+00000129  InitializeTimerG0       
+0000026d  NMI_Handler             
+0000026d  PendSV_Handler          
+0000026d  RTC_IRQHandler          
+00000265  Reset_Handler           
+0000026d  SPI0_IRQHandler         
+0000026d  SPI1_IRQHandler         
+0000026d  SVC_Handler             
+00000239  SetTimerG0Delay         
+0000026d  SysTick_Handler         
+0000026d  TIMA0_IRQHandler        
+0000026d  TIMA1_IRQHandler        
+00000245  TIMG0_IRQHandler        
+0000026d  TIMG12_IRQHandler       
+0000026d  TIMG6_IRQHandler        
+0000026d  TIMG7_IRQHandler        
+0000026d  TIMG8_IRQHandler        
+0000026d  UART0_IRQHandler        
+0000026d  UART1_IRQHandler        
+0000026d  UART2_IRQHandler        
+0000026d  UART3_IRQHandler        
+20208000  __STACK_END             
+00000200  __STACK_SIZE            
+00000000  __TI_ATRegion0_region_sz
+00000000  __TI_ATRegion0_src_addr 
+00000000  __TI_ATRegion0_trg_addr 
+00000000  __TI_ATRegion1_region_sz
+00000000  __TI_ATRegion1_src_addr 
+00000000  __TI_ATRegion1_trg_addr 
+00000000  __TI_ATRegion2_region_sz
+00000000  __TI_ATRegion2_src_addr 
+00000000  __TI_ATRegion2_trg_addr 
+00000000  __TI_CINIT_Base         
+00000000  __TI_CINIT_Limit        
+00000000  __TI_CINIT_Warm         
+ffffffff  __TI_pprof_out_hndl     
+ffffffff  __TI_prof_data_size     
+ffffffff  __TI_prof_data_start    
+00000000  __TI_static_base__      
+ffffffff  __binit__               
+UNDEFED   __mpu_init              
+20207e00  __stack                 
+20200000  __start___llvm_prf_bits 
+20200000  __start___llvm_prf_cnts 
+20200000  __stop___llvm_prf_bits  
+20200000  __stop___llvm_prf_cnts  
+000001fd  _c_int00_noinit_noargs  
+00000269  _system_pre_init        
+0000025b  abort                   
+ffffffff  binit                   
+00000251  delay_cycles            
+00000000  interruptVectors        
+00000171  main                    
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                    
+-------   ----                    
+00000000  __TI_ATRegion0_region_sz
+00000000  __TI_ATRegion0_src_addr 
+00000000  __TI_ATRegion0_trg_addr 
+00000000  __TI_ATRegion1_region_sz
+00000000  __TI_ATRegion1_src_addr 
+00000000  __TI_ATRegion1_trg_addr 
+00000000  __TI_ATRegion2_region_sz
+00000000  __TI_ATRegion2_src_addr 
+00000000  __TI_ATRegion2_trg_addr 
+00000000  __TI_CINIT_Base         
+00000000  __TI_CINIT_Limit        
+00000000  __TI_CINIT_Warm         
+00000000  __TI_static_base__      
+00000000  interruptVectors        
+000000c1  InitializeTimerA1_PWM   
+00000129  InitializeTimerG0       
+00000171  main                    
+000001b9  InitializeGPIO          
+000001fd  _c_int00_noinit_noargs  
+00000200  __STACK_SIZE            
+0000021d  EnableTimerG0           
+00000239  SetTimerG0Delay         
+00000245  TIMG0_IRQHandler        
+00000251  delay_cycles            
+0000025b  abort                   
+00000260  C$$EXIT                 
+00000261  HOSTexit                
+00000265  Reset_Handler           
+00000269  _system_pre_init        
+0000026d  ADC0_IRQHandler         
+0000026d  ADC1_IRQHandler         
+0000026d  AES_IRQHandler          
+0000026d  CANFD0_IRQHandler       
+0000026d  DAC0_IRQHandler         
+0000026d  DMA_IRQHandler          
+0000026d  Default_Handler         
+0000026d  GROUP0_IRQHandler       
+0000026d  GROUP1_IRQHandler       
+0000026d  HardFault_Handler       
+0000026d  I2C0_IRQHandler         
+0000026d  I2C1_IRQHandler         
+0000026d  NMI_Handler             
+0000026d  PendSV_Handler          
+0000026d  RTC_IRQHandler          
+0000026d  SPI0_IRQHandler         
+0000026d  SPI1_IRQHandler         
+0000026d  SVC_Handler             
+0000026d  SysTick_Handler         
+0000026d  TIMA0_IRQHandler        
+0000026d  TIMA1_IRQHandler        
+0000026d  TIMG12_IRQHandler       
+0000026d  TIMG6_IRQHandler        
+0000026d  TIMG7_IRQHandler        
+0000026d  TIMG8_IRQHandler        
+0000026d  UART0_IRQHandler        
+0000026d  UART1_IRQHandler        
+0000026d  UART2_IRQHandler        
+0000026d  UART3_IRQHandler        
+20200000  __start___llvm_prf_bits 
+20200000  __start___llvm_prf_cnts 
+20200000  __stop___llvm_prf_bits  
+20200000  __stop___llvm_prf_cnts  
+20207e00  __stack                 
+20208000  __STACK_END             
+ffffffff  __TI_pprof_out_hndl     
+ffffffff  __TI_prof_data_size     
+ffffffff  __TI_prof_data_start    
+ffffffff  __binit__               
+ffffffff  binit                   
+UNDEFED   __mpu_init              
+
+[70 symbols]
