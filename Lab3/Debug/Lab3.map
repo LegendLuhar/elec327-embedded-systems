@@ -1,0 +1,334 @@
+******************************************************************************
+            TI ARM Clang Linker Unix v4.0.4                    
+******************************************************************************
+>> Linked Wed Apr 15 11:26:56 2026
+
+OUTPUT FILE NAME:   <Lab3.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 000002f1
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00020000  00000478  0001fb88  R  X
+  SRAM                  20200000   00008000  000002c4  00007d3c  RW X
+  BCR_CONFIG            41c00000   00000080  00000000  00000080  R   
+  BSL_CONFIG            41c00100   00000080  00000000  00000080  R   
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000478   00000478    r-x
+  00000000    00000000    000000c0   000000c0    r-- .intvecs
+  000000c0    000000c0    00000300   00000300    r-x .text
+  000003c0    000003c0    000000b8   000000b8    r-- .cinit
+20200000    20200000    000000c4   00000000    rw-
+  20200000    20200000    000000c0   00000000    rw- .data
+  202000c0    202000c0    00000004   00000000    rw- .bss
+20207e00    20207e00    00000200   00000000    rw-
+  20207e00    20207e00    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    000000c0     
+                  00000000    000000c0     startup_mspm0g350x_ticlang.o (.intvecs)
+
+.text      0    000000c0    00000300     
+                  000000c0    00000088     hw_interface.o (.text.InitializeLEDs)
+                  00000148    0000007c     libc.a : copy_decompress_lzss.c.obj (.text:decompress:lzss)
+                  000001c4    00000068     hw_interface.o (.text.InitializeTimerG0)
+                  0000022c    00000058     lab3.o (.text.main)
+                  00000284    0000003c     libc.a : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit)
+                  000002c0    00000030     state_machine_logic.o (.text.GetStateOutput)
+                  000002f0    00000028     libc.a : boot_cortex_m.c.obj (.text:_c_int00_noargs)
+                  00000318    0000001c     hw_interface.o (.text.EnableTimerG0)
+                  00000334    00000018     state_machine_logic.o (.text.GetNextState)
+                  0000034c    00000016     libc.a : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset)
+                  00000362    00000012            : memcpy16.S.obj (.text:TI_memcpy_small)
+                  00000374    00000012            : copy_decompress_none.c.obj (.text:decompress:none)
+                  00000386    00000002     startup_mspm0g350x_ticlang.o (.text.Default_Handler)
+                  00000388    0000000c     hw_interface.o (.text.SetTimerG0Delay)
+                  00000394    0000000c     hw_interface.o (.text.TIMG0_IRQHandler)
+                  000003a0    00000008     libclang_rt.builtins.a : aeabi_memcpy.S.obj (.text.__aeabi_memcpy)
+                  000003a8    00000006     libc.a : exit.c.obj (.text:abort)
+                  000003ae    00000004     hw_interface.o (.text.GetButtonState)
+                  000003b2    00000004     libsysbm.a : hostexit.c.obj (.text.HOSTexit)
+                  000003b6    00000004     startup_mspm0g350x_ticlang.o (.text.Reset_Handler)
+                  000003ba    00000004     libc.a : pre_init.c.obj (.text._system_pre_init)
+                  000003be    00000002     hw_interface.o (.text.InitializeButton)
+
+.cinit     0    000003c0    000000b8     
+                  000003c0    00000090     (.cinit..data.load) [load image, compression = lzss]
+                  00000450    0000000c     (__TI_handler_table)
+                  0000045c    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00000464    00000010     (__TI_cinit_table)
+                  00000474    00000004     --HOLE-- [fill = 0]
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.binit     0    00000000    00000000     
+
+.data      0    20200000    000000c0     UNINITIALIZED
+                  20200000    00000060     hw_interface.o (.data.hour_leds)
+                  20200060    00000060     hw_interface.o (.data.minute_leds)
+
+.bss       0    202000c0    00000004     UNINITIALIZED
+                  202000c0    00000004     (.common:led_mask)
+
+.stack     0    20207e00    00000200     UNINITIALIZED
+                  20207e00    00000004     libc.a : boot_cortex_m.c.obj (.stack)
+                  20207e04    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20200000    00000000     UNINITIALIZED
+
+__llvm_prf_bits 
+*          0    20200000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    ./
+       hw_interface.o                 298    0         196    
+       startup_mspm0g350x_ticlang.o   6      192       0      
+       lab3.o                         88     0         0      
+       state_machine_logic.o          72     0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         464    192       196    
+                                                              
+    /Applications/ti/ccs2040/ccs/tools/compiler/ti-cgt-armllvm_4.0.4.LTS/lib/armv6m-ti-none-eabi/c/libc.a
+       copy_decompress_lzss.c.obj     124    0         0      
+       autoinit.c.obj                 60     0         0      
+       boot_cortex_m.c.obj            40     0         0      
+       copy_zero_init.c.obj           22     0         0      
+       copy_decompress_none.c.obj     18     0         0      
+       memcpy16.S.obj                 18     0         0      
+       exit.c.obj                     6      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         292    0         0      
+                                                              
+    /Applications/ti/ccs2040/ccs/tools/compiler/ti-cgt-armllvm_4.0.4.LTS/lib/armv6m-ti-none-eabi/c/libsysbm.a
+       hostexit.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         4      0         0      
+                                                              
+    /Applications/ti/ccs2040/ccs/tools/compiler/ti-cgt-armllvm_4.0.4.LTS/lib/armv6m-ti-none-eabi/libclang_rt.builtins.a
+       aeabi_memcpy.S.obj             8      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         8      0         0      
+                                                              
+       Stack:                         0      0         512    
+       Linker Generated:              0      180       0      
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   768    372       708    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00000464 records: 2, size/record: 8, table size: 16
+	.data: load addr=000003c0, load size=00000090 bytes, run addr=20200000, run size=000000c0 bytes, compression=lzss
+	.bss: load addr=0000045c, load size=00000008 bytes, run addr=202000c0, run size=00000004 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00000450 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+00000387  ADC0_IRQHandler               
+00000387  ADC1_IRQHandler               
+00000387  AES_IRQHandler                
+000003b2  C$$EXIT                       
+00000387  CANFD0_IRQHandler             
+00000387  DAC0_IRQHandler               
+00000387  DMA_IRQHandler                
+00000387  Default_Handler               
+00000319  EnableTimerG0                 
+00000387  GROUP0_IRQHandler             
+00000387  GROUP1_IRQHandler             
+000003af  GetButtonState                
+00000335  GetNextState                  
+000002c1  GetStateOutput                
+000003b3  HOSTexit                      
+00000387  HardFault_Handler             
+00000387  I2C0_IRQHandler               
+00000387  I2C1_IRQHandler               
+000003bf  InitializeButton              
+000000c1  InitializeLEDs                
+000001c5  InitializeTimerG0             
+00000387  NMI_Handler                   
+00000387  PendSV_Handler                
+00000387  RTC_IRQHandler                
+000003b7  Reset_Handler                 
+00000387  SPI0_IRQHandler               
+00000387  SPI1_IRQHandler               
+00000387  SVC_Handler                   
+00000389  SetTimerG0Delay               
+00000387  SysTick_Handler               
+00000387  TIMA0_IRQHandler              
+00000387  TIMA1_IRQHandler              
+00000395  TIMG0_IRQHandler              
+00000387  TIMG12_IRQHandler             
+00000387  TIMG6_IRQHandler              
+00000387  TIMG7_IRQHandler              
+00000387  TIMG8_IRQHandler              
+00000363  TI_memcpy_small               
+00000387  UART0_IRQHandler              
+00000387  UART1_IRQHandler              
+00000387  UART2_IRQHandler              
+00000387  UART3_IRQHandler              
+20208000  __STACK_END                   
+00000200  __STACK_SIZE                  
+00000000  __TI_ATRegion0_region_sz      
+00000000  __TI_ATRegion0_src_addr       
+00000000  __TI_ATRegion0_trg_addr       
+00000000  __TI_ATRegion1_region_sz      
+00000000  __TI_ATRegion1_src_addr       
+00000000  __TI_ATRegion1_trg_addr       
+00000000  __TI_ATRegion2_region_sz      
+00000000  __TI_ATRegion2_src_addr       
+00000000  __TI_ATRegion2_trg_addr       
+00000464  __TI_CINIT_Base               
+00000474  __TI_CINIT_Limit              
+00000474  __TI_CINIT_Warm               
+00000450  __TI_Handler_Table_Base       
+0000045c  __TI_Handler_Table_Limit      
+00000285  __TI_auto_init_nobinit_nopinit
+00000149  __TI_decompress_lzss          
+00000375  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+0000034d  __TI_zero_init_nomemset       
+000003a1  __aeabi_memcpy                
+000003a1  __aeabi_memcpy4               
+000003a1  __aeabi_memcpy8               
+ffffffff  __binit__                     
+UNDEFED   __mpu_init                    
+20207e00  __stack                       
+20200000  __start___llvm_prf_bits       
+20200000  __start___llvm_prf_cnts       
+20200000  __stop___llvm_prf_bits        
+20200000  __stop___llvm_prf_cnts        
+000002f1  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+000003bb  _system_pre_init              
+000003a9  abort                         
+ffffffff  binit                         
+20200000  hour_leds                     
+00000000  interruptVectors              
+202000c0  led_mask                      
+0000022d  main                          
+20200060  minute_leds                   
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_ATRegion0_region_sz      
+00000000  __TI_ATRegion0_src_addr       
+00000000  __TI_ATRegion0_trg_addr       
+00000000  __TI_ATRegion1_region_sz      
+00000000  __TI_ATRegion1_src_addr       
+00000000  __TI_ATRegion1_trg_addr       
+00000000  __TI_ATRegion2_region_sz      
+00000000  __TI_ATRegion2_src_addr       
+00000000  __TI_ATRegion2_trg_addr       
+00000000  __TI_static_base__            
+00000000  interruptVectors              
+000000c1  InitializeLEDs                
+00000149  __TI_decompress_lzss          
+000001c5  InitializeTimerG0             
+00000200  __STACK_SIZE                  
+0000022d  main                          
+00000285  __TI_auto_init_nobinit_nopinit
+000002c1  GetStateOutput                
+000002f1  _c_int00_noargs               
+00000319  EnableTimerG0                 
+00000335  GetNextState                  
+0000034d  __TI_zero_init_nomemset       
+00000363  TI_memcpy_small               
+00000375  __TI_decompress_none          
+00000387  ADC0_IRQHandler               
+00000387  ADC1_IRQHandler               
+00000387  AES_IRQHandler                
+00000387  CANFD0_IRQHandler             
+00000387  DAC0_IRQHandler               
+00000387  DMA_IRQHandler                
+00000387  Default_Handler               
+00000387  GROUP0_IRQHandler             
+00000387  GROUP1_IRQHandler             
+00000387  HardFault_Handler             
+00000387  I2C0_IRQHandler               
+00000387  I2C1_IRQHandler               
+00000387  NMI_Handler                   
+00000387  PendSV_Handler                
+00000387  RTC_IRQHandler                
+00000387  SPI0_IRQHandler               
+00000387  SPI1_IRQHandler               
+00000387  SVC_Handler                   
+00000387  SysTick_Handler               
+00000387  TIMA0_IRQHandler              
+00000387  TIMA1_IRQHandler              
+00000387  TIMG12_IRQHandler             
+00000387  TIMG6_IRQHandler              
+00000387  TIMG7_IRQHandler              
+00000387  TIMG8_IRQHandler              
+00000387  UART0_IRQHandler              
+00000387  UART1_IRQHandler              
+00000387  UART2_IRQHandler              
+00000387  UART3_IRQHandler              
+00000389  SetTimerG0Delay               
+00000395  TIMG0_IRQHandler              
+000003a1  __aeabi_memcpy                
+000003a1  __aeabi_memcpy4               
+000003a1  __aeabi_memcpy8               
+000003a9  abort                         
+000003af  GetButtonState                
+000003b2  C$$EXIT                       
+000003b3  HOSTexit                      
+000003b7  Reset_Handler                 
+000003bb  _system_pre_init              
+000003bf  InitializeButton              
+00000450  __TI_Handler_Table_Base       
+0000045c  __TI_Handler_Table_Limit      
+00000464  __TI_CINIT_Base               
+00000474  __TI_CINIT_Limit              
+00000474  __TI_CINIT_Warm               
+20200000  __start___llvm_prf_bits       
+20200000  __start___llvm_prf_cnts       
+20200000  __stop___llvm_prf_bits        
+20200000  __stop___llvm_prf_cnts        
+20200000  hour_leds                     
+20200060  minute_leds                   
+202000c0  led_mask                      
+20207e00  __stack                       
+20208000  __STACK_END                   
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[86 symbols]
